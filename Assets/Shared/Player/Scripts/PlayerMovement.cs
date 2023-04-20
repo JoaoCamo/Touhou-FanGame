@@ -21,14 +21,10 @@ public class PlayerMovement : MonoBehaviour
     {
         controls.Enable();
         slowDown.Enable();
-        ani = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void OnEnable()
-    {
         slowDown.performed += focusOn;
         slowDown.canceled += focusOff;
+        ani = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
     
     private void Update()

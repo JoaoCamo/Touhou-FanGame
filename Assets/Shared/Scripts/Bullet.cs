@@ -17,22 +17,16 @@ public class Bullet : MonoBehaviour
         if (col.CompareTag("Barrier"))
         {
             Hide();
-        }
-
-        if (col.CompareTag("Player") && isEnemy)
-        {
-            if (GameManager.instance.playerLifes > 0)
-            {
-                col.SendMessage("receiveDamage",1);
-                Hide();
-                return;
-            }
-            Hide();
+            return;
         }
 
         if (col.CompareTag("Enemy") && !isEnemy)
         {
-            col.SendMessage("receiveDamage",1);
+            col.SendMessage("ReceiveDamage");
+            Hide();
+            return;
+        } else if (col.CompareTag("Player") && isEnemy) {
+            col.SendMessage("ReceiveDamage");
             Hide();
         }
     }

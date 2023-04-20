@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public void receiveDamage(int damage)
+    private float immuneTime = 2f;
+    private float lastImmune = 0f;
+    
+    private void ReceiveDamage()
     {
-        if (GameManager.instance.playerLifes > 0)
+        if (GameManager.instance.playerLives > 0 && (Time.time - lastImmune) > immuneTime)
         {
-            GameManager.instance.playerLifes -= damage;
-            //hitted();
-            return;
+            lastImmune = Time.time;
+            GameManager.instance.hud.loseLife(GameManager.instance.playerLives-1);
+            GameManager.instance.playerLives -= 1;
+            GameManager.instance.playerBombs = 2;
         }
     }
 
-    public void destroy()
+    public void Destroy()
     {
         Destroy(gameObject);
     }

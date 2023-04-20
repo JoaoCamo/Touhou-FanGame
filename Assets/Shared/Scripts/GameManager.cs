@@ -7,7 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int playerLifes;
+    public GameObject UI;
+    public HUD hud;
+    
+    public int playerLives;
     public int playerBombs;
 
     private void Start()
@@ -15,9 +18,11 @@ public class GameManager : MonoBehaviour
         if (GameManager.instance != null)
         {
             Destroy(gameObject);
+            Destroy(UI);
         }
         instance = this;
-        
+
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(UI);
     }
 }

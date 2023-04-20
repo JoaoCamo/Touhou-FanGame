@@ -13,13 +13,9 @@ public class PlayerAttack : MonoBehaviour
         if (bm = GameObject.Find("BulletManager").transform.GetComponent<BulletManager>())
         {
             shootInput.Enable();
+            shootInput.performed += startShoot;
+            shootInput.canceled += endShoot;
         }
-    }
-
-    private void OnEnable()
-    {
-        shootInput.performed += startShoot;
-        shootInput.canceled += endShoot;
     }
 
     private void startShoot(InputAction.CallbackContext context)

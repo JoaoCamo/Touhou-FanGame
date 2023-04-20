@@ -6,11 +6,11 @@ public class EnemyStatus : MonoBehaviour
 {
     [SerializeField] private int life;
 
-    public void receiveDamage(int damage)
+    public void ReceiveDamage()
     {
         if (life > 0)
         {
-            life -= damage;
+            life -= 1;
             return;
         }
         destroy();
