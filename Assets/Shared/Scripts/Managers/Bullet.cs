@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     public float ySpeed;
     public float xSpeed;
     public bool isEnemy = true;
+    private bool grazed = false;
+    [SerializeField] private bool isBomb;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -20,14 +22,27 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        if(isBomb && col.CompareTag("EnemyBullet"))
+        {
+            col.GetComponent<Bullet>().Hide();
+            return;
+        }
+
         if (col.CompareTag("Enemy") && !isEnemy)
         {
-            col.SendMessage("ReceiveDamage");
-            Hide();
-            return;
+            if(!isBomb)
+            {
+                col.SendMessage("ReceiveDamage", 1);
+                Hide();
+            } else {
+                col.SendMessage("ReceiveDamage", 15);
+            }
         } else if (col.CompareTag("Player") && isEnemy) {
             col.SendMessage("ReceiveDamage");
             Hide();
+        } else if (col.CompareTag("Graze") && isEnemy && !grazed) {
+            col.transform.parent.SendMessage("Graze");
+            grazed = true;
         }
     }
 
@@ -45,6 +60,7 @@ public class Bullet : MonoBehaviour
     public void Hide()
     {
         active = false;
+        grazed = false;
         gameObject.SetActive(active);
     }
 }

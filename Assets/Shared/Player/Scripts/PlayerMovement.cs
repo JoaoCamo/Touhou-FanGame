@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float angle = 0f;
     private Vector2 moveDir;
     private Rigidbody2D rb;
+    private bool focus;
 
     [SerializeField] private GameObject focusHitbox;
     
@@ -56,13 +57,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void focusOn(InputAction.CallbackContext context)
     {
+        focus = true;
         focusHitbox.SetActive(true);
         speed = (speed/(8/3));
     }
 
     private void focusOff(InputAction.CallbackContext context)
     {
+        focus = false;
         focusHitbox.SetActive(false);
         speed = (speed*(8/3));
+    }
+
+    public bool getFocus()
+    {
+        return this.focus;
     }
 }

@@ -18,6 +18,12 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
+    private void Graze()
+    {
+        GameManager.instance.graze++;
+        GameManager.instance.hud.updateGraze();
+    }
+
     public void Destroy()
     {
         Destroy(gameObject);

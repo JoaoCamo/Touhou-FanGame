@@ -46,5 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 0}
   hud: {fileID: 0}
+  difficulty: 1
+  points: 0
   playerLives: 3
   playerBombs: 2
+  playerPower: 0

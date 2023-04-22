@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Barrier
   - Enemy
+  - Graze
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -54,4 +56,7 @@ TagManager:
     locked: 0
   - name: EnemyBullet
     uniqueID: 1848035167
+    locked: 0
+  - name: Enemy
+    uniqueID: 1079480739
     locked: 0

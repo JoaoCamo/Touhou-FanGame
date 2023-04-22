@@ -3,7 +3,7 @@ guid: 1fae47e1f57b9cb458363be78b1f8f7d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -616,7 +619,7 @@ TextureImporter:
         width: 31
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -624,6 +627,48 @@ TextureImporter:
       bones: []
       spriteID: bbbcd8ae912a4de449fb5911dcb71080
       internalID: 82586943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou10Sprites_17
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 97
+        width: 31
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a257521ea976e984d925081c0138521f
+      internalID: 584105617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou10Sprites_18
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 193
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2059158947d9a4591c6e78f7202232
+      internalID: -192769120
       vertices: []
       indices: 
       edges: []
@@ -639,34 +684,35 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      touhou10Sprites_15: 1158281223
-      touhou10Sprites_6: 2135489634
+      51905_0: -1873549375
+      51905_1: 752371900
+      51905_2: -2033545297
+      51905_3: 1581777978
+      51905_4: -426920844
+      51905_5: 1473900727
+      51905_6: -808910591
+      51905_7: 1843469032
+      touhou10Sprites_0: 653092758
+      touhou10Sprites_1: 1452809624
       touhou10Sprites_10: 668527618
       touhou10Sprites_11: 710781954
-      touhou10Sprites_3: 891242058
-      51905_4: -426920844
-      touhou10Sprites_4: -1485742177
-      touhou10Sprites_9: -1529007088
-      touhou10Sprites_0: 653092758
-      51905_6: -808910591
-      touhou10Sprites_8: 1594518785
-      51905_1: 752371900
-      touhou10Sprites_2: -2105245481
-      touhou10Sprites_7: -528399390
-      51905_0: -1873549375
-      51905_2: -2033545297
-      51905_7: 1843469032
-      touhou10Sprites_1: 1452809624
-      51905_5: 1473900727
-      touhou10Sprites_14: -993593783
-      touhou10Sprites_13: 1578532480
       touhou10Sprites_12: 1883170767
-      touhou10Sprites_5: -1046590497
+      touhou10Sprites_13: 1578532480
+      touhou10Sprites_14: -993593783
+      touhou10Sprites_15: 1158281223
       touhou10Sprites_16: 82586943
-      51905_3: 1581777978
-  spritePackingTag: 
+      touhou10Sprites_17: 584105617
+      touhou10Sprites_18: -192769120
+      touhou10Sprites_2: -2105245481
+      touhou10Sprites_3: 891242058
+      touhou10Sprites_4: -1485742177
+      touhou10Sprites_5: -1046590497
+      touhou10Sprites_6: 2135489634
+      touhou10Sprites_7: -528399390
+      touhou10Sprites_8: 1594518785
+      touhou10Sprites_9: -1529007088
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

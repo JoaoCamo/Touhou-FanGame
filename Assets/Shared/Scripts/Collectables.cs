@@ -7,25 +7,108 @@ public class Collectables : MonoBehaviour
 {
     [SerializeField] private bool point;
     [SerializeField] private bool power;
+    [SerializeField] private bool bigPower;
+    [SerializeField] private bool fullPower;
     [SerializeField] private bool life;
     [SerializeField] private bool bomb;
+    private bool goToPlayer = false;
+    private Vector3 direction;
+    private PopUpTextManager popUpTextManager;
+
+    private void Start()
+    {
+        popUpTextManager = GameObject.Find("PoolingManager").GetComponent<PopUpTextManager>();        
+    }
+
+    private void Update()
+    {
+        if(goToPlayer)
+        {
+            direction = (GameObject.Find("Player").transform.position - transform.position).normalized;
+            transform.Translate(direction.x * 3f * Time.deltaTime, direction.y * 3f * Time.deltaTime, 0f);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (point)
+        if(col.CompareTag("Player"))
         {
-            return;
-        } else if (power) {
-            return;
-        } else if (life) {
-            if (GameManager.instance.playerLives < 8)
+            if (point)
             {
-                GameManager.instance.playerLives++;
-                GameManager.instance.hud.updateLifes();
-            } else {
+                getPoints();
+            } else if (power) {
+                getPower();
+            } else if (life) {
+                if (GameManager.instance.playerLives < 8)
+                {
+                    GameManager.instance.playerLives++;
+                    GameManager.instance.hud.updateLifes();
+                } else {
+                    GameManager.instance.playerBombs++;
+                }
+                Destroy(this.gameObject);
+            } else if (bomb) {
                 GameManager.instance.playerBombs++;
+                Destroy(this.gameObject);
             }
-        } else if (bomb) {
-            GameManager.instance.playerBombs++;
         }
+    }
+
+    private void getPoints()
+    {
+        int value;
+        if(transform.position.y >= 0.7)
+        {
+            value = 50000 * GameManager.instance.difficulty;
+            GameManager.instance.points += value;
+            popUpTextManager.show(value.ToString(), 15, Color.yellow, transform.position, Vector3.up * 50, 1f);
+        } else {
+            if(transform.position.y >= 0 && transform.position.y < 0.7)
+            {
+                value = (int)(50000 * (transform.position.y+0.3f)) * GameManager.instance.difficulty;
+                GameManager.instance.points += value;
+            } else {
+                value = 12500 * GameManager.instance.difficulty;
+                GameManager.instance.points += value;
+            }
+            popUpTextManager.show(value.ToString(), 15, Color.white, transform.position, Vector3.up * 50, 1f);
+        }
+        GameManager.instance.hud.updatePoints();
+        Destroy(this.gameObject);
+    }
+
+    private void getPower()
+    {
+        if(GameManager.instance.playerPower < 4 && !fullPower)
+        {
+            if(bigPower)
+            {
+                if(GameManager.instance.playerPower + 0.5f > 4)
+                {
+                    GameManager.instance.playerPower = 4;
+                } else {
+                    GameManager.instance.playerPower += 0.5f;
+                }
+                popUpTextManager.show("100", 15, Color.white, transform.position, Vector3.up * 50, 1f);
+                GameManager.instance.points += 100;
+            }
+            GameManager.instance.playerPower += 0.05f;
+            popUpTextManager.show("10", 15, Color.white, transform.position, Vector3.up * 50, 1f);
+            GameManager.instance.points += 10;
+        } else {
+            GameManager.instance.playerPower = 4;
+            popUpTextManager.show("100", 15, Color.white, transform.position, Vector3.up * 50, 1f);
+            GameManager.instance.points += 100;
+        }
+        GameManager.instance.hud.updatePoints();
+        GameManager.instance.hud.updatePower();
+        Destroy(this.gameObject);
+    }
+
+    public void getAll()
+    {
+        GetComponent<Rigidbody2D>().gravityScale = 0f;
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        goToPlayer = true;
     }
 }

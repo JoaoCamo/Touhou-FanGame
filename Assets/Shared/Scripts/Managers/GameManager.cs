@@ -10,8 +10,12 @@ public class GameManager : MonoBehaviour
     public GameObject UI;
     public HUD hud;
     
+    public int difficulty;
+    public int points;
     public int playerLives;
     public int playerBombs;
+    public int graze;
+    public float playerPower;
 
     private void Start()
     {

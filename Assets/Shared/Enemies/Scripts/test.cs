@@ -9,7 +9,7 @@ public class test : MonoBehaviour
     
     private void Start()
     {
-        bm = GameObject.Find("BulletManager").transform.GetComponent<BulletManager>();
+        bm = GameObject.Find("PoolingManager").transform.GetComponent<BulletManager>();
         StartCoroutine(Fire());
     }
     
@@ -27,11 +27,11 @@ public class test : MonoBehaviour
 
     private void shot4()
     {
-        for (int i = 1; i < 2 + 1; i++)
+        for (int i = 1; i < 4; i++)
         {
-            bm.show(1, 0f, 0.5f,transform.position, angle);
+            bm.show(3, 0f, 0.75f,transform.position, angle);
 
-            if (i == 2)
+            if (i == 3)
             {
                 angle += 20f;
             }
