@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
     private BulletManager bm;
-    private float bombTime = 3f;
+    private float bombCooldown = 3f;
     private float lastBomb;
     private bool bombed = false;
     private PlayerMovement pm;
@@ -116,7 +116,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void useBomb(InputAction.CallbackContext context)
     {
-        if(GameManager.instance.playerBombs > 0 && (Time.time - lastBomb) > bombTime)
+        if(GameManager.instance.playerBombs > 0 && (Time.time - lastBomb) > bombCooldown)
         {
             gameObject.GetComponent<PlayerStatus>().setLastImmune(Time.time);
             lastBomb = Time.time;

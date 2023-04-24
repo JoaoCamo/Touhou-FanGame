@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4eea90bbdac210f4e9bcd17e5ec41458
+guid: 773d6c42b17ade942b16102bda6e0a3d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,12 +107,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemies_0
+      name: enemies1_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 377
-        width: 24
+        x: 49
+        y: 196
+        width: 30
         height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -121,19 +121,103 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5db030aaf605b904494d97f4994bf3ae
-      internalID: -1233545837
+      spriteID: c49bf9b9f537c034598f1857abe9d499
+      internalID: -471182672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemies_1
+      name: enemies1_1
       rect:
         serializedVersion: 2
-        x: 45
-        y: 377
-        width: 26
+        x: 82
+        y: 196
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff0ab1cd3db043408efde19d0978137
+      internalID: -2073805642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemies1_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 196
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be1902b849f03014ea35128f1ea1feda
+      internalID: -702989764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemies1_3
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 196
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c66176d66a606d41a7645e622622174
+      internalID: -988399376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemies1_4
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 196
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd29422139e7cc4aa68dcec152f7a84
+      internalID: -813838027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemies1_5
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 164
+        width: 30
         height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -142,18 +226,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 116ade59fa6bbc44b97feb27c3080a00
-      internalID: 1996156340
+      spriteID: 217274df4a2bceb4b90db593d0dc849e
+      internalID: 1780897796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemies_2
+      name: enemies1_6
       rect:
         serializedVersion: 2
-        x: 76
-        y: 377
+        x: 82
+        y: 164
         width: 28
         height: 27
       alignment: 0
@@ -163,18 +247,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdd9acaf9ff736049b908f9c43a06e0c
-      internalID: 2013635371
+      spriteID: 04e42dfaa7e74a146b1f8c8fd35d3c6a
+      internalID: -1504764087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemies_3
+      name: enemies1_7
       rect:
         serializedVersion: 2
-        x: 108
-        y: 377
+        x: 114
+        y: 164
         width: 28
         height: 27
       alignment: 0
@@ -184,8 +268,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08d9dae59dfdac343a8cab7ccc4f892f
-      internalID: 241872453
+      spriteID: c4b3e59e10df38340aae579681eb1ec4
+      internalID: 14970333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemies1_8
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 164
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 759212d427060db458a657913c330fef
+      internalID: 2089616387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemies1_9
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 164
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2dffdf5815c8f249828dee86c2f9d72
+      internalID: 1085869048
       vertices: []
       indices: 
       edges: []
@@ -201,10 +327,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemies_0: -1233545837
-      Enemies_1: 1996156340
-      Enemies_2: 2013635371
-      Enemies_3: 241872453
+      enemies1_0: -471182672
+      enemies1_1: -2073805642
+      enemies1_2: -702989764
+      enemies1_3: -988399376
+      enemies1_4: -813838027
+      enemies1_5: 1780897796
+      enemies1_6: -1504764087
+      enemies1_7: 14970333
+      enemies1_8: 2089616387
+      enemies1_9: 1085869048
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -15,7 +15,7 @@ public class EnemiesDanmaku : MonoBehaviour
 
     public void roundShot4(int type)
     {
-        angle = 0f;
+        angle = 70f;
         for ( i = 0; i < 4; i++)
         {
             bm.show(type, 0f ,1f, transform.position, angle);
@@ -30,6 +30,17 @@ public class EnemiesDanmaku : MonoBehaviour
         {
             bm.show(type, 0f ,1f, transform.position, angle);
             angle += 45;
+        }
+    }
+
+    public void doubleRoundShot16(int type)
+    {
+        angle = 0f;
+        for ( i = 0; i < 16; i++)
+        {
+            bm.show(type, 0f ,1f, transform.position, angle);
+            bm.show(type, 0f ,0.9f, transform.position, angle);
+            angle += 22.5f;
         }
     }
 
@@ -57,7 +68,8 @@ public class EnemiesDanmaku : MonoBehaviour
     public IEnumerator roundShotProgressiveRoutine(int type)
     {
         angle = 0;
-        for( i = 0; i < 200; i++)
+        float angelStep = 5;
+        for( i = 0; i < 150; i++)
         {
             yield return new WaitForSeconds(0.05f);
             bm.show(type, 0f ,1f, transform.position, angle);
@@ -66,9 +78,9 @@ public class EnemiesDanmaku : MonoBehaviour
             angle+=10f;
             if(i >= 50)
             {
-                bm.show(type, 0f ,0.8f, transform.position, angle+5f);
-                bm.show(type, 0f ,0.8f, transform.position, angle+120f+5f);
-                bm.show(type, 0f ,0.8f, transform.position, angle+240f+5f);
+                bm.show(type, 0f ,0.8f, transform.position, angle+angelStep);
+                bm.show(type, 0f ,0.8f, transform.position, angle+120f+angelStep);
+                bm.show(type, 0f ,0.8f, transform.position, angle+240f+angelStep);
             }
         }
     }

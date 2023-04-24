@@ -20,11 +20,19 @@ public class EnemyBehaviour : MonoBehaviour
         } else {
             Invoke("setShot", initalShotDelay);
         }
-
     }
 
     private void setShot()
     {
         danmaku.SendMessage(this.danmakuName,this.bulletType);
+    }
+
+    public void setBehaviour(string DanmakuName, int BulletType, float InitalShotDelay, float ShotDelay, bool Repeats)
+    {
+        this.danmakuName = DanmakuName;
+        this.bulletType = BulletType;
+        this.initalShotDelay = InitalShotDelay;
+        this.shotDelay = ShotDelay;
+        this.repeats = Repeats;
     }
 }
