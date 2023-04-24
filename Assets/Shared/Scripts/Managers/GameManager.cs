@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject UI;
     public HUD hud;
     
+    public int pointsToNextLife = 50;
+    public int pointsCollected;
     public int difficulty;
-    public int points;
+    public int score;
     public int playerLives;
     public int playerBombs;
     public int graze;
@@ -28,5 +30,24 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(UI);
+    }
+
+    public void checkForNewlife()
+    {
+        pointsCollected++;
+        if(pointsCollected >= pointsToNextLife)
+        {
+            if(playerLives < 8)
+            {
+                playerLives++;
+                hud.updateLifes();
+            } else {
+                playerBombs++;
+                hud.updateBombs();
+            }
+            pointsToNextLife*=2;
+        }
+        hud.updatePoints();
+
     }
 }

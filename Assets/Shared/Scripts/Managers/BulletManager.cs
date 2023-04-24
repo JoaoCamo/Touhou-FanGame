@@ -33,4 +33,24 @@ public class BulletManager : MonoBehaviour
     
         return bullet;
     }
+
+    public void hideEnemyBullets()
+    {
+        foreach (Bullet bullet in FindObjectsOfType<Bullet>())
+        {
+            if(bullet.CompareTag("EnemyBullet"))
+            {
+                bullet.Hide();
+            }
+        }
+    }
+
+    public void clearBullets()
+    {
+        bullets.Clear();
+        foreach (Bullet bullet in FindObjectsOfType<Bullet>())
+        {
+            Destroy(bullet.gameObject);
+        }
+    }
 }

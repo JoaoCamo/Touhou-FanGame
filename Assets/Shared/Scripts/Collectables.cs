@@ -45,12 +45,15 @@ public class Collectables : MonoBehaviour
                     GameManager.instance.hud.updateLifes();
                 } else {
                     GameManager.instance.playerBombs++;
+                    GameManager.instance.hud.updateBombs();
                 }
                 Destroy(this.gameObject);
             } else if (bomb) {
                 GameManager.instance.playerBombs++;
                 Destroy(this.gameObject);
             }
+        } else if(col.CompareTag("Barrier")) {
+            Destroy(this.gameObject);
         }
     }
 
@@ -60,20 +63,21 @@ public class Collectables : MonoBehaviour
         if(transform.position.y >= 0.7)
         {
             value = 50000 * GameManager.instance.difficulty;
-            GameManager.instance.points += value;
+            GameManager.instance.score += value;
             popUpTextManager.show(value.ToString(), 15, Color.yellow, transform.position, Vector3.up * 50, 1f);
         } else {
             if(transform.position.y >= 0 && transform.position.y < 0.7)
             {
                 value = (int)(50000 * (transform.position.y+0.3f)) * GameManager.instance.difficulty;
-                GameManager.instance.points += value;
+                GameManager.instance.score += value;
             } else {
                 value = 12500 * GameManager.instance.difficulty;
-                GameManager.instance.points += value;
+                GameManager.instance.score += value;
             }
             popUpTextManager.show(value.ToString(), 15, Color.white, transform.position, Vector3.up * 50, 1f);
         }
-        GameManager.instance.hud.updatePoints();
+        GameManager.instance.hud.updateScore();
+        GameManager.instance.checkForNewlife();
         Destroy(this.gameObject);
     }
 
@@ -90,18 +94,23 @@ public class Collectables : MonoBehaviour
                     GameManager.instance.playerPower += 0.5f;
                 }
                 popUpTextManager.show("100", 15, Color.white, transform.position, Vector3.up * 50, 1f);
-                GameManager.instance.points += 100;
+                GameManager.instance.score += 100;
+            } else {
+                GameManager.instance.playerPower += 0.05f;
+                popUpTextManager.show("10", 15, Color.white, transform.position, Vector3.up * 50, 1f);
+                GameManager.instance.score += 10;
             }
-            GameManager.instance.playerPower += 0.05f;
-            popUpTextManager.show("10", 15, Color.white, transform.position, Vector3.up * 50, 1f);
-            GameManager.instance.points += 10;
         } else {
             GameManager.instance.playerPower = 4;
-            popUpTextManager.show("100", 15, Color.white, transform.position, Vector3.up * 50, 1f);
-            GameManager.instance.points += 100;
+            popUpTextManager.show("1000", 15, Color.white, transform.position, Vector3.up * 50, 1f);
+            GameManager.instance.score += 1000;
         }
-        GameManager.instance.hud.updatePoints();
+        GameManager.instance.hud.updateScore();
         GameManager.instance.hud.updatePower();
+        if(GameManager.instance.playerPower == 4)
+        {
+            GameObject.Find("PoolingManager").GetComponent<BulletManager>().hideEnemyBullets();
+        }
         Destroy(this.gameObject);
     }
 

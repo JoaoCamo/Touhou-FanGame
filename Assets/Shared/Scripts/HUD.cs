@@ -8,9 +8,10 @@ public class HUD : MonoBehaviour
 {
     [SerializeField] private GameObject[] lives;
     [SerializeField] private GameObject[] bombs;
-    [SerializeField] private TMPro.TMP_Text pointsText;
+    [SerializeField] private TMPro.TMP_Text scoreText;
     [SerializeField] private TMPro.TMP_Text powerText;
     [SerializeField] private TMPro.TMP_Text grazeText;
+    [SerializeField] private TMPro.TMP_Text pointsText;
 
     private void Start()
     {
@@ -45,9 +46,9 @@ public class HUD : MonoBehaviour
         bombs[bombIndex].SetActive(false);
     }
 
-    public void updatePoints()
+    public void updateScore()
     {
-        pointsText.text = GameManager.instance.points.ToString();
+        scoreText.text = GameManager.instance.score.ToString();
     }
 
     public void updatePower()
@@ -58,5 +59,10 @@ public class HUD : MonoBehaviour
     public void updateGraze()
     {
         grazeText.text = GameManager.instance.graze.ToString();
+    }
+
+    public void updatePoints()
+    {
+        pointsText.text = GameManager.instance.pointsCollected.ToString() + " / " + GameManager.instance.pointsToNextLife.ToString();
     }
 }

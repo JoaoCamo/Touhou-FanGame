@@ -7,11 +7,14 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private Animator ani;
-    private float speed = 2f;
     private float angle = 0f;
     private Vector2 moveDir;
     private Rigidbody2D rb;
     private bool focus;
+    private PlayerAttack pa;
+
+    [SerializeField] private float speed;
+    private float originalSpeed;
 
     [SerializeField] private GameObject focusHitbox;
     
@@ -20,12 +23,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        originalSpeed = this.speed;
         controls.Enable();
         slowDown.Enable();
         slowDown.performed += focusOn;
         slowDown.canceled += focusOff;
         ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        pa = GetComponent<PlayerAttack>();
     }
     
     private void Update()
@@ -59,18 +64,34 @@ public class PlayerMovement : MonoBehaviour
     {
         focus = true;
         focusHitbox.SetActive(true);
-        speed = (speed/(8/3));
+        if(!pa.getBombed())
+        {
+            speed = (speed/(8/3));
+        }
     }
 
     private void focusOff(InputAction.CallbackContext context)
     {
         focus = false;
         focusHitbox.SetActive(false);
-        speed = (speed*(8/3));
+        if(!pa.getBombed())
+        {
+            speed = (speed*(8/3));
+        }
     }
 
     public bool getFocus()
     {
         return this.focus;
+    }
+
+    public float getSpeed()
+    {
+        return this.originalSpeed;
+    }
+
+    public void setSpeed(float value)
+    {
+        this.speed = value;
     }
 }

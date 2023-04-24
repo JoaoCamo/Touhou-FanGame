@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
                 col.SendMessage("ReceiveDamage", 1);
                 Hide();
             } else {
-                col.SendMessage("ReceiveDamage", 15);
+                col.SendMessage("ReceiveDamage", 30);
             }
         } else if (col.CompareTag("Player") && isEnemy) {
             col.SendMessage("ReceiveDamage");
@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate( xSpeed,ySpeed * Time.deltaTime,0f);
+        transform.Translate(xSpeed*Time.deltaTime,ySpeed*Time.deltaTime,0f);
     }
     
     public void Show()

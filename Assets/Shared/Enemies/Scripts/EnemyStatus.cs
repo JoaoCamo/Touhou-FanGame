@@ -13,8 +13,8 @@ public class EnemyStatus : MonoBehaviour
         if (life > 0)
         {
             life -= damage;
-            GameManager.instance.points += 10;
-            GameManager.instance.hud.updatePoints();
+            GameManager.instance.score += 10;
+            GameManager.instance.hud.updateScore();
             return;
         }
         destroy();
@@ -24,9 +24,9 @@ public class EnemyStatus : MonoBehaviour
     {
         if(!dropped)
         {
-            Instantiate(drops[0], new Vector3(transform.position.x+0.1f,transform.position.y,transform.position.z),Quaternion.identity);
-            Instantiate(drops[0], new Vector3(transform.position.x-0.1f,transform.position.y,transform.position.z),Quaternion.identity);
-            Instantiate(drops[1], new Vector3(transform.position.x,transform.position.y+0.1f,transform.position.z),Quaternion.identity);
+            float xOffSet = UnityEngine.Random.Range(-0.2f,0.2f);
+            float yOffSet = UnityEngine.Random.Range(-0.2f,0.2f);
+            Instantiate(drops[0], new Vector3(transform.position.x+xOffSet,transform.position.y+yOffSet,transform.position.z),Quaternion.identity);
             dropped = true;
         }
         Destroy(gameObject);
