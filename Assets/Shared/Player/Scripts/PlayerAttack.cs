@@ -69,18 +69,18 @@ public class PlayerAttack : MonoBehaviour
 
     private void missileShot1()
     {
-        bm.show(1,5f,0f,new Vector3(transform.position.x,transform.position.y + 0.3f, transform.position.z),90f);
+        bm.show(1,6f,0f,new Vector3(transform.position.x,transform.position.y + 0.3f, transform.position.z),90f);
     }
 
     private void missileShot2()
     {
         if(gameObject.GetComponent<PlayerMovement>().getFocus())
         {
-            bm.show(1,5f,0f,new Vector3(transform.position.x + 0.2f,transform.position.y, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x - 0.2f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.2f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.2f,transform.position.y, transform.position.z),90f);
         } else {
-            bm.show(1,5f,0f,new Vector3(transform.position.x + 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x - 0.3f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.3f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.3f,transform.position.y, transform.position.z),90f);
         }
     }
 
@@ -88,13 +88,13 @@ public class PlayerAttack : MonoBehaviour
     {
         if(gameObject.GetComponent<PlayerMovement>().getFocus())
         {
-            bm.show(1,5f,0f,new Vector3(transform.position.x + 0.2f,transform.position.y + 0.3f, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x - 0.2f,transform.position.y + 0.3f, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.2f,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.2f,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x,transform.position.y + 0.3f, transform.position.z),90f);
         } else {
-            bm.show(1,5f,0f,new Vector3(transform.position.x + 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x - 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.3f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.3f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x,transform.position.y + 0.3f, transform.position.z),90f);
         }
     }
 
@@ -102,15 +102,15 @@ public class PlayerAttack : MonoBehaviour
     {
         if(gameObject.GetComponent<PlayerMovement>().getFocus())
         {
-            bm.show(1,5f,0f,new Vector3(transform.position.x + 0.2f,transform.position.y, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x - 0.2f,transform.position.y, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x + 0.125f,transform.position.y + 0.3f, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x - 0.125f,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.2f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.2f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.125f,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.125f,transform.position.y + 0.3f, transform.position.z),90f);
         } else {
-            bm.show(1,5f,0f,new Vector3(transform.position.x + 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x - 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x + 0.175f,transform.position.y + 0.3f, transform.position.z),90f);
-            bm.show(1,5f,0f,new Vector3(transform.position.x - 0.175f,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.3f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.3f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.175f,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.175f,transform.position.y + 0.3f, transform.position.z),90f);
         }
     }
 

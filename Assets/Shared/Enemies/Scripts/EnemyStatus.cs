@@ -36,7 +36,7 @@ public class EnemyStatus : MonoBehaviour
             float yOffSet = UnityEngine.Random.Range(-0.3f,0.3f);
             for(int i = 0; i<drops.Length; i++)
             {
-                Instantiate(drops[0], new Vector3(transform.position.x+xOffSet,transform.position.y+yOffSet,transform.position.z),Quaternion.identity);
+                Instantiate(drops[i], new Vector3(transform.position.x+xOffSet,transform.position.y+yOffSet,transform.position.z),Quaternion.identity);
             }
             dropped = true;
         }

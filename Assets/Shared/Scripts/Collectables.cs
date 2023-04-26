@@ -83,33 +83,43 @@ public class Collectables : MonoBehaviour
 
     private void getPower()
     {
-        if(GameManager.instance.playerPower < 4 && !fullPower)
+        if(!fullPower)
         {
             if(bigPower)
             {
-                if(GameManager.instance.playerPower + 0.5f > 4)
+                if(GameManager.instance.playerPower < 4)
                 {
-                    GameManager.instance.playerPower = 4;
-                } else {
-                    GameManager.instance.playerPower += 0.5f;
+                    if(GameManager.instance.playerPower + 0.5f > 4)
+                    {
+                        GameManager.instance.playerPower = 4;
+                    } else {
+                        GameManager.instance.playerPower += 0.5f;
+                    }
                 }
                 popUpTextManager.show("100", 15, Color.white, transform.position, Vector3.up * 50, 1f);
                 GameManager.instance.score += 100;
             } else {
-                GameManager.instance.playerPower += 0.05f;
+                if(GameManager.instance.playerPower < 4)
+                {
+                    GameManager.instance.playerPower += 0.05f;
+                }
                 popUpTextManager.show("10", 15, Color.white, transform.position, Vector3.up * 50, 1f);
                 GameManager.instance.score += 10;
             }
         } else {
-            GameManager.instance.playerPower = 4;
+            if(GameManager.instance.playerPower < 4)
+            {
+                GameManager.instance.playerPower = 4;
+            }
             popUpTextManager.show("1000", 15, Color.white, transform.position, Vector3.up * 50, 1f);
             GameManager.instance.score += 1000;
         }
         GameManager.instance.hud.updateScore();
         GameManager.instance.hud.updatePower();
-        if(GameManager.instance.playerPower == 4)
+        if(GameManager.instance.playerPower == 4 && !GameManager.instance.clearedAll)
         {
             GameObject.Find("PoolingManager").GetComponent<BulletManager>().hideEnemyBullets();
+            GameManager.instance.clearedAll = true;
         }
         Destroy(this.gameObject);
     }

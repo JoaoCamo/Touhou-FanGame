@@ -24,6 +24,7 @@ public class PlayerStatus : MonoBehaviour
             GameManager.instance.hud.loseLife(GameManager.instance.playerLives-1);
             missPowerLoss();
             missPowerDrops();
+            GameManager.instance.clearedAll = false;
             GameManager.instance.hud.updatePower();
             GameManager.instance.playerLives -= 1;
             GameManager.instance.playerBombs = 2;

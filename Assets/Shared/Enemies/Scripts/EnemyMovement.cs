@@ -33,20 +33,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if(LTR) StartCoroutine(leftToRight());
         else if(RTL) StartCoroutine(rightToLeft());
-        else if(TL) StartCoroutine(topLeft());
-        else if(TR) StartCoroutine(topRight());
+        else if(TL) StartCoroutine(topToLeft());
+        else if(TR) StartCoroutine(topToRight());
     }
 
     private IEnumerator leftToRight()
-    {
-        this.xSpeed = -1f;
-        yield return new WaitForSeconds(0.9f);
-        this.xSpeed = -0.15f;
-        yield return new WaitForSeconds(0.65f);
-        this.xSpeed = -0.4f;
-    }
-
-    private IEnumerator rightToLeft()
     {
         this.xSpeed = 1f;
         yield return new WaitForSeconds(0.9f);
@@ -55,7 +46,16 @@ public class EnemyMovement : MonoBehaviour
         this.xSpeed = 0.4f;
     }
 
-    private IEnumerator topLeft()
+    private IEnumerator rightToLeft()
+    {
+        this.xSpeed = -1f;
+        yield return new WaitForSeconds(0.9f);
+        this.xSpeed = -0.15f;
+        yield return new WaitForSeconds(0.65f);
+        this.xSpeed = -0.4f;
+    }
+
+    private IEnumerator topToLeft()
     {
         this.ySpeed = -1f;
         yield return new WaitForSeconds(0.9f);
@@ -64,7 +64,7 @@ public class EnemyMovement : MonoBehaviour
         this.xSpeed = -0.4f;
     }
 
-    private IEnumerator topRight()
+    private IEnumerator topToRight()
     {
         this.ySpeed = -1f;
         yield return new WaitForSeconds(0.9f);

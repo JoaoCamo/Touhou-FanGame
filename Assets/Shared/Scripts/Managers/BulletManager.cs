@@ -6,6 +6,12 @@ public class BulletManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] bulletPrefab;
     private List<GameObject> bullets = new List<GameObject>();
+    private Transform player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").transform;
+    }
     
     public void show(int type, float xSpeed, float ySpeed, Vector3 position, float angle)
     {
@@ -18,7 +24,7 @@ public class BulletManager : MonoBehaviour
         bullet.GetComponent<Bullet>().ySpeed = ySpeed;
     
         bullet.GetComponent<Bullet>().Show();
-       }
+    }
     
     public GameObject getBullet(int type)
     {
@@ -52,5 +58,10 @@ public class BulletManager : MonoBehaviour
         {
             Destroy(bullet.gameObject);
         }
+    }
+
+    public Transform getPlayerPos()
+    {
+        return this.player;
     }
 }

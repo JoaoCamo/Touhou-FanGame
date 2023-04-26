@@ -7,6 +7,7 @@ public class EnemiesDanmaku : MonoBehaviour
     private float angle;
     private int i;
     private BulletManager bm;
+    private Vector3 vectorToTarget;
 
     private void Start()
     {
@@ -15,7 +16,8 @@ public class EnemiesDanmaku : MonoBehaviour
 
     public void roundShot4(int type)
     {
-        angle = 70f;
+        vectorToTarget = bm.getPlayerPos().position - transform.position;
+        angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 180f;
         for ( i = 0; i < 4; i++)
         {
             bm.show(type, 0f ,1f, transform.position, angle);
@@ -25,7 +27,8 @@ public class EnemiesDanmaku : MonoBehaviour
 
     public void roundShot8(int type)
     {
-        angle = 0f;
+        vectorToTarget = bm.getPlayerPos().position - transform.position;
+        angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 180f;
         for ( i = 0; i < 8; i++)
         {
             bm.show(type, 0f ,1f, transform.position, angle);
@@ -35,18 +38,20 @@ public class EnemiesDanmaku : MonoBehaviour
 
     public void doubleRoundShot16(int type)
     {
-        angle = 0f;
+        vectorToTarget = bm.getPlayerPos().position - transform.position;
+        angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 180f;
         for ( i = 0; i < 16; i++)
         {
+            bm.show(type, 0f ,0.8f, transform.position, angle);
             bm.show(type, 0f ,1f, transform.position, angle);
-            bm.show(type, 0f ,0.9f, transform.position, angle);
             angle += 22.5f;
         }
     }
 
     public void halfMoon(int type)
     {
-        angle = 90f;
+        vectorToTarget = bm.getPlayerPos().position - transform.position;
+        angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 180f;
         for ( i = 0; i < 9; i++)
         {
             bm.show(type, 0f ,1f, transform.position, angle);
@@ -56,7 +61,8 @@ public class EnemiesDanmaku : MonoBehaviour
 
     public void doubleHalfMoon(int type)
     {
-        angle = 90f;
+        vectorToTarget = bm.getPlayerPos().position - transform.position;
+        angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 180f;
         for ( i = 0; i < 9; i++)
         {
             bm.show(type, 0f ,0.8f, transform.position, angle);

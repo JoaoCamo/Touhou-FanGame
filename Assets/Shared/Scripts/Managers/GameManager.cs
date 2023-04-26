@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public int playerBombs;
     public int graze;
     public float playerPower;
+    public bool clearedAll = false;
 
     private void Start()
     {
