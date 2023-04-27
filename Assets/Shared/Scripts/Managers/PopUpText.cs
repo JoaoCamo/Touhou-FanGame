@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PopUpText : MonoBehaviour
 {
-    public bool active;
-    public GameObject go;
     public TMPro.TMP_Text txt;
     public Vector3 motion;
     public float duration;
@@ -13,20 +11,18 @@ public class PopUpText : MonoBehaviour
 
     public void Show()
     {
-        active = true;
         lastShown = Time.time;
-        go.SetActive(active);
+        gameObject.SetActive(true);
     }
 
     public void Hide()
     {
-        active = false;
-        go.SetActive(active);
+        gameObject.SetActive(false);
     }
 
     public void UpdatePopUpText()
     {
-        if(!active)
+        if(!this.gameObject.activeSelf)
         {
             return;
         }
@@ -36,6 +32,6 @@ public class PopUpText : MonoBehaviour
             Hide();
         }
 
-        go.transform.position += motion * Time.deltaTime;
+        gameObject.transform.position += motion * Time.deltaTime;
     }
 }

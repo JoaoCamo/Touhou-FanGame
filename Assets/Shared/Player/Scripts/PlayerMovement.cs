@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     private float originalSpeed;
 
-    [SerializeField] private GameObject focusHitbox;
+    [SerializeField] private GameObject focusHitbox1;
+    [SerializeField] private GameObject focusHitbox2;
     
     [SerializeField] private InputAction controls;
     [SerializeField] private InputAction slowDown;
@@ -36,9 +37,10 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         moveDir = controls.ReadValue<Vector2>();
-        if (focusHitbox.activeSelf)
+        if (focus)
         {
-            focusHitbox.transform.rotation = Quaternion.Euler(0f,0f,angle);
+            focusHitbox1.transform.rotation = Quaternion.Euler(0f,0f,angle);
+            focusHitbox2.transform.rotation = Quaternion.Euler(0f,0f,-angle);
             angle += 0.1f;
         }
     }
@@ -63,20 +65,22 @@ public class PlayerMovement : MonoBehaviour
     private void focusOn(InputAction.CallbackContext context)
     {
         focus = true;
-        focusHitbox.SetActive(true);
+        focusHitbox1.SetActive(true);
+        focusHitbox2.SetActive(true);
         if(!pa.getBombed())
         {
-            speed = (speed/(8/3));
+            speed = (originalSpeed/2);
         }
     }
 
     private void focusOff(InputAction.CallbackContext context)
     {
         focus = false;
-        focusHitbox.SetActive(false);
+        focusHitbox1.SetActive(false);
+        focusHitbox2.SetActive(false);
         if(!pa.getBombed())
         {
-            speed = (speed*(8/3));
+            speed = (originalSpeed);
         }
     }
 

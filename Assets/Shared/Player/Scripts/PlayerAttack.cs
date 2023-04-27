@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     private float lastBomb;
     private bool bombed = false;
     private PlayerMovement pm;
+    private Vector3 shotOrigin;
     [SerializeField] private Animator bombAni;
     [SerializeField] private InputAction shootInput;
     [SerializeField] private InputAction bombInput;
@@ -33,10 +34,10 @@ public class PlayerAttack : MonoBehaviour
     {
         if(!bombed)
         {
-            InvokeRepeating("mainShot",0f,0.075f);
+            InvokeRepeating("mainShot",0f,0.05f);
             if(GameManager.instance.playerPower >= 1)
             {
-                InvokeRepeating("shotMissile",0f,0.15f);
+                InvokeRepeating("shotMissile",0f,0.1f);
             }
         }
     }
@@ -49,8 +50,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void mainShot()
     {
-        bm.show(0,7f,0f,new Vector3(transform.position.x + 0.075f,transform.position.y, transform.position.z),90f);
-        bm.show(0,7f,0f,new Vector3(transform.position.x - 0.075f,transform.position.y, transform.position.z),90f);
+        shotOrigin = transform.position;
+        bm.show(0,8f,0f,new Vector3(shotOrigin.x + 0.075f,shotOrigin.y, 0),90f);
+        bm.show(0,8f,0f,new Vector3(shotOrigin.x - 0.075f,shotOrigin.y, 0),90f);
     }
 
     private void shotMissile()
@@ -69,48 +71,52 @@ public class PlayerAttack : MonoBehaviour
 
     private void missileShot1()
     {
-        bm.show(1,6f,0f,new Vector3(transform.position.x,transform.position.y + 0.3f, transform.position.z),90f);
+        shotOrigin = transform.position;
+        bm.show(1,6.5f,0f,new Vector3(shotOrigin.x,shotOrigin.y + 0.3f, 0),90f);
     }
 
     private void missileShot2()
     {
+        shotOrigin = transform.position;
         if(gameObject.GetComponent<PlayerMovement>().getFocus())
         {
-            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.2f,transform.position.y, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.2f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.2f,shotOrigin.y, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.2f,shotOrigin.y, 0),90f);
         } else {
-            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.3f,transform.position.y, transform.position.z),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.3f,shotOrigin.y, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.3f,shotOrigin.y, 0),90f);
         }
     }
 
     private void missileShot3()
     {
+        shotOrigin = transform.position;
         if(gameObject.GetComponent<PlayerMovement>().getFocus())
         {
-            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.2f,transform.position.y + 0.3f, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.2f,transform.position.y + 0.3f, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.2f,shotOrigin.y + 0.3f,0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.2f,shotOrigin.y + 0.3f,0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x,shotOrigin.y + 0.3f,0),90f);
         } else {
-            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.3f,shotOrigin.y, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.3f,shotOrigin.y, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x,shotOrigin.y + 0.3f, 0),90f);
         }
     }
 
     private void missileShot4()
     {
+        shotOrigin = transform.position;
         if(gameObject.GetComponent<PlayerMovement>().getFocus())
         {
-            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.2f,transform.position.y, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.2f,transform.position.y, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.125f,transform.position.y + 0.3f, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.125f,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.2f,shotOrigin.y, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.2f,shotOrigin.y, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.125f,shotOrigin.y + 0.3f, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.125f,shotOrigin.y + 0.3f, 0),90f);
         } else {
-            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.3f,transform.position.y, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x + 0.175f,transform.position.y + 0.3f, transform.position.z),90f);
-            bm.show(1,6f,0f,new Vector3(transform.position.x - 0.175f,transform.position.y + 0.3f, transform.position.z),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.3f,shotOrigin.y, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.3f,shotOrigin.y, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.175f,shotOrigin.y + 0.3f, 0),90f);
+            bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.175f,shotOrigin.y + 0.3f, 0),90f);
         }
     }
 
@@ -140,7 +146,7 @@ public class PlayerAttack : MonoBehaviour
         bombed = true;
         if(!pm.getFocus())
         {
-            pm.setSpeed(pm.getSpeed()/(8/3));
+            pm.setSpeed(pm.getSpeed()/2);
         }
         yield return new WaitForSeconds(2f);
         bombed = false;

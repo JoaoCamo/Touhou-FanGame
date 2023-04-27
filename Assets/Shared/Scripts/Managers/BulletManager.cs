@@ -28,7 +28,7 @@ public class BulletManager : MonoBehaviour
     
     public GameObject getBullet(int type)
     {
-        GameObject bullet = bullets.Find(t => !t.GetComponent<Bullet>().active && t.GetComponent<Bullet>().type == type);
+        GameObject bullet = bullets.Find(t => !t.activeSelf && t.GetComponent<Bullet>().type == type);
     
         if(bullet == null)
         {

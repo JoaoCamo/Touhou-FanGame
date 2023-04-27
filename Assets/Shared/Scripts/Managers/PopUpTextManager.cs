@@ -8,40 +8,39 @@ public class PopUpTextManager : MonoBehaviour
     [SerializeField] private GameObject textContainer;
     [SerializeField] private GameObject textPrefab;
 
-    private List<PopUpText> popUpTexts = new List<PopUpText>();
+    private List<GameObject> popUpTexts = new List<GameObject>();
 
     private void Update()
     {
-        foreach(PopUpText txt in popUpTexts)
+        foreach(GameObject txt in popUpTexts)
         {
-            txt.UpdatePopUpText();
+            txt.GetComponent<PopUpText>().UpdatePopUpText();
         }
     }
 
     public void show(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
     {
-        PopUpText popUpText = getPopUpText();
+        GameObject popUpText = getPopUpText();
+        PopUpText put = popUpText.GetComponent<PopUpText>();
 
-        popUpText.txt.text = msg;
-        popUpText.txt.fontSize = fontSize;
-        popUpText.txt.color = color;
-        popUpText.go.transform.position = Camera.main.WorldToScreenPoint(position);
-        popUpText.motion = motion;
-        popUpText.duration = duration;
+        put.txt.text = msg;
+        put.txt.fontSize = fontSize;
+        put.txt.color = color;
+        put.transform.position = Camera.main.WorldToScreenPoint(position);
+        put.motion = motion;
+        put.duration = duration;
 
-        popUpText.Show();
+        put.Show();
     }
 
-    private PopUpText getPopUpText()
+    private GameObject getPopUpText()
     {
-        PopUpText txt = popUpTexts.Find(t => !t.active);
+        GameObject txt = popUpTexts.Find(t => !t.activeSelf);
 
         if(txt == null)
         {
-            txt = new PopUpText();
-            txt.go = Instantiate(textPrefab);
-            txt.go.transform.SetParent(textContainer.transform);
-            txt.txt = txt.go.GetComponent<TMPro.TMP_Text>();
+            txt = Instantiate(textPrefab);
+            txt.transform.SetParent(textContainer.transform);
 
             popUpTexts.Add(txt);
         }

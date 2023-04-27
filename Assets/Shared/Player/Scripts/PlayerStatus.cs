@@ -73,7 +73,7 @@ public class PlayerStatus : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if(pm.getFocus())
         {
-            pm.setSpeed(pm.getSpeed()/(8/3));
+            pm.setSpeed(pm.getSpeed()/2);
         } else {
             pm.setSpeed(pm.getSpeed());
         }

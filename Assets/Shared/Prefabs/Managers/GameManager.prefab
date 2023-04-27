@@ -46,8 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 0}
   hud: {fileID: 0}
+  pointsToNextLife: 50
+  pointsCollected: 0
   difficulty: 1
-  points: 0
+  score: 0
   playerLives: 3
   playerBombs: 2
+  graze: 0
   playerPower: 0
+  clearedAll: 0

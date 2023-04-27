@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    public bool active;
+    
     public int type;
     public float ySpeed;
     public float xSpeed;
@@ -53,14 +52,12 @@ public class Bullet : MonoBehaviour
     
     public void Show()
     {
-        active = true;
-        gameObject.SetActive(active);
+        gameObject.SetActive(true);
     }
     
     public void Hide()
     {
-        active = false;
         grazed = false;
-        gameObject.SetActive(active);
+        gameObject.SetActive(false);
     }
 }
