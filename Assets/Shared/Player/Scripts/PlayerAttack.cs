@@ -34,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(!bombed)
         {
-            InvokeRepeating("mainShot",0f,0.05f);
+            InvokeRepeating("mainShot",0f,0.075f);
             if(GameManager.instance.playerPower >= 1)
             {
                 InvokeRepeating("shotMissile",0f,0.1f);

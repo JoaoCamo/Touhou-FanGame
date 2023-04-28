@@ -16,14 +16,16 @@ public class BulletManager : MonoBehaviour
     public void show(int type, float xSpeed, float ySpeed, Vector3 position, float angle)
     {
         GameObject bullet = getBullet(type);
+        Bullet bulletData = bullet.GetComponent<Bullet>();
+        
+        bulletData._positionResult[0] = position;
+        bullet.transform.position = bulletData._positionResult[0];
+        bullet.transform.rotation = Quaternion.Euler(0,0,angle);
+        bulletData.type = type;
+        bulletData.xSpeed = xSpeed;
+        bulletData.ySpeed = ySpeed;
     
-        bullet.transform.position = position;
-        bullet.transform.rotation = Quaternion.Euler(transform.rotation.x,transform.rotation.y, angle);
-        bullet.GetComponent<Bullet>().type = type;
-        bullet.GetComponent<Bullet>().xSpeed = xSpeed;
-        bullet.GetComponent<Bullet>().ySpeed = ySpeed;
-    
-        bullet.GetComponent<Bullet>().Show();
+        bulletData.Show();
     }
     
     public GameObject getBullet(int type)
@@ -33,6 +35,7 @@ public class BulletManager : MonoBehaviour
         if(bullet == null)
         {
             bullet = Instantiate(bulletPrefab[type]);
+            bullet.GetComponent<Bullet>().allocateMemory();
     
             bullets.Add(bullet);
         }
