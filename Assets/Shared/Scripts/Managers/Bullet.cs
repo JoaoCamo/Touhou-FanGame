@@ -50,13 +50,13 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void setJob()
     {
         BulletJob job = new BulletJob(ySpeed, xSpeed, Time.deltaTime, transform.position, transform.rotation, _positionResult);
         _jobHandle = job.Schedule();
     }
 
-    private void LateUpdate()
+    public void completeJob()
     {
         _jobHandle.Complete();
         transform.position = _positionResult[0];

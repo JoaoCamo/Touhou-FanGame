@@ -32,15 +32,20 @@ public class EnemyStatus : MonoBehaviour
     {
         if(!dropped)
         {
-            float xOffSet = UnityEngine.Random.Range(-0.3f,0.3f);
-            float yOffSet = UnityEngine.Random.Range(-0.3f,0.3f);
             for(int i = 0; i<drops.Length; i++)
             {
+                float xOffSet = UnityEngine.Random.Range(-0.6f,0.6f);
+                float yOffSet = UnityEngine.Random.Range(-0.6f,0.6f);
                 Instantiate(drops[i], new Vector3(transform.position.x+xOffSet,transform.position.y+yOffSet,transform.position.z),Quaternion.identity);
             }
             dropped = true;
         }
         destroy();
+    }
+
+    public void setHP(int value)
+    {
+        this.life = value;
     }
 
     public void destroy()

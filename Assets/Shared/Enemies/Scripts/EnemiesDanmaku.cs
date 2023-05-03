@@ -15,6 +15,14 @@ public class EnemiesDanmaku : MonoBehaviour
         bm = GameObject.Find("PoolingManager").transform.GetComponent<BulletManager>();
     }
 
+    public void singleShot(int type)
+    {
+        shotOrigin = transform.position;
+        vectorToTarget = bm.getPlayerPos().position - shotOrigin;
+        angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90f;
+        bm.show(type, 0f, 0.75f, shotOrigin, angle);
+    }
+
     public void roundShot4(int type)
     {
         shotOrigin = transform.position;
@@ -129,11 +137,14 @@ public class EnemiesDanmaku : MonoBehaviour
         for (i = 0; i < 400; i++)
         {
             yield return new WaitForSeconds(0.0275f);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle + 72f);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle + 144f);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle + 216f);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle + 288f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 45f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 90f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 135f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 180f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 225f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 270f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 315f);
             angle += value + ((i-100) * 0.15f);
         }
     }
@@ -143,11 +154,14 @@ public class EnemiesDanmaku : MonoBehaviour
         for (i = 0; i < 125; i++)
         {
             yield return new WaitForSeconds(0.0275f);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle + 72f);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle + 144f);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle + 216f);
-            bm.show(type, 0f, 1.4f, shotOrigin, angle + 288f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 45f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 90f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 135f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 180f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 225f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 270f);
+            bm.show(type, 0f, 1.8f, shotOrigin, angle + 315f);
             angle += value;
         }
     }
@@ -157,7 +171,7 @@ public class EnemiesDanmaku : MonoBehaviour
         yield return bowp1(type,10f, -45f);
         yield return bowp2(type,-8.5f);
         yield return bowp1(type,-10, angle);
-        yield return bowp2(type,8.5f);
+        yield return bowp2(type,8f);
         yield return bowp1(type,10f, angle);
         StartCoroutine(borderOfWaveAndParticleRoutine(type));
     }

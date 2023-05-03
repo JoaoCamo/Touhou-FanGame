@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8531817183622447023
 SpriteRenderer:
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1dcaa30b641c548bdc40cb45b281ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
   type: 0
   ySpeed: 0
   xSpeed: 0
@@ -148,7 +147,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.1}
+  m_Size: {x: 0.03, y: 0.075}
   m_EdgeRadius: 0
 --- !u!50 &4407902406194094058
 Rigidbody2D:

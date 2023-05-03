@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5370866780274394969}
   - component: {fileID: 6272258825432711468}
   - component: {fileID: 6825995325007347355}
-  - component: {fileID: 2076286488482615619}
+  - component: {fileID: 1602173052615038785}
   - component: {fileID: 3884759998184942622}
   m_Layer: 7
   m_Name: EnemyBullet_5
@@ -99,14 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1dcaa30b641c548bdc40cb45b281ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
   type: 0
   ySpeed: 0
   xSpeed: 0
   isEnemy: 1
   isBomb: 0
---- !u!61 &2076286488482615619
-BoxCollider2D:
+--- !u!58 &1602173052615038785
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -138,18 +137,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.17, y: 0.16}
-    newSize: {x: 0.31, y: 0.14}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.085, y: 0.085}
-  m_EdgeRadius: 0
+  m_Radius: 0.04
 --- !u!50 &3884759998184942622
 Rigidbody2D:
   serializedVersion: 4

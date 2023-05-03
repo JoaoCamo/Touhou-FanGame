@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,29 @@ public class BulletManager : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
     }
-    
+
+    private void Update()
+    {
+        foreach (GameObject bullet in bullets)
+        {
+            if (bullet.activeSelf)
+            {
+                bullet.GetComponent<Bullet>().setJob();
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        foreach (GameObject bullet in bullets)
+        {
+            if (bullet.activeSelf)
+            {
+                bullet.GetComponent<Bullet>().completeJob();
+            }
+        }
+    }
+
     public void show(int type, float xSpeed, float ySpeed, Vector3 position, float angle)
     {
         GameObject bullet = getBullet(type);

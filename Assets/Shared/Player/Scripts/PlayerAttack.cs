@@ -35,10 +35,7 @@ public class PlayerAttack : MonoBehaviour
         if(!bombed)
         {
             InvokeRepeating("mainShot",0f,0.075f);
-            if(GameManager.instance.playerPower >= 1)
-            {
-                InvokeRepeating("shotMissile",0f,0.1f);
-            }
+            InvokeRepeating("shotMissile",0f,0.1f);
         }
     }
 
@@ -57,15 +54,18 @@ public class PlayerAttack : MonoBehaviour
 
     private void shotMissile()
     {
-        if(GameManager.instance.playerPower == 4)
+        if(GameManager.instance.playerPower >= 1)
         {
-            missileShot4();
-        } else if(GameManager.instance.playerPower >= 3) {
-            missileShot3();
-        } else if(GameManager.instance.playerPower >= 2) {
-            missileShot2();
-        } else {
-            missileShot1();
+            if(GameManager.instance.playerPower == 4)
+            {
+                missileShot4();
+            } else if(GameManager.instance.playerPower >= 3) {
+                missileShot3();
+            } else if(GameManager.instance.playerPower >= 2) {
+                missileShot2();
+            } else {
+                missileShot1();
+            }
         }
     }
 
