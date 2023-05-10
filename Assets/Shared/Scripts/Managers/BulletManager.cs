@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] bulletPrefab;
-    private List<GameObject> bullets = new List<GameObject>();
+    [ReadOnly] private List<Bullet> bullets = new List<Bullet>();
     private Transform player;
 
     private void Start()
@@ -16,50 +17,50 @@ public class BulletManager : MonoBehaviour
 
     private void Update()
     {
-        foreach (GameObject bullet in bullets)
+        foreach (Bullet bullet in bullets)
         {
-            if (bullet.activeSelf)
+            if (bullet.gameObject.activeSelf)
             {
-                bullet.GetComponent<Bullet>().setJob();
+                bullet.setJob();
             }
         }
     }
 
     private void LateUpdate()
     {
-        foreach (GameObject bullet in bullets)
+        foreach (Bullet bullet in bullets)
         {
-            if (bullet.activeSelf)
+            if (bullet.gameObject.activeSelf)
             {
-                bullet.GetComponent<Bullet>().completeJob();
+                bullet.completeJob();
             }
         }
     }
 
-    public void show(int type, float xSpeed, float ySpeed, Vector3 position, float angle)
+    public Bullet show(int type, float xSpeed, float ySpeed, Vector3 position, float angle)
     {
-        GameObject bullet = getBullet(type);
-        Bullet bulletData = bullet.GetComponent<Bullet>();
-        
+        Bullet bulletData = getBullet(type);
+
         bulletData._positionResult[0] = position;
-        bullet.transform.position = bulletData._positionResult[0];
-        bullet.transform.rotation = Quaternion.Euler(0,0,angle);
+        bulletData.transform.position = bulletData._positionResult[0];
+        bulletData.transform.rotation = Quaternion.Euler(0,0,angle);
         bulletData.type = type;
         bulletData.xSpeed = xSpeed;
         bulletData.ySpeed = ySpeed;
     
         bulletData.Show();
+        return bulletData;
     }
     
-    public GameObject getBullet(int type)
+    public Bullet getBullet(int type)
     {
-        GameObject bullet = bullets.Find(t => !t.activeSelf && t.GetComponent<Bullet>().type == type);
+        Bullet bullet = bullets.Find(t => !t.gameObject.activeSelf && t.type == type);
     
         if(bullet == null)
         {
-            bullet = Instantiate(bulletPrefab[type]);
-            bullet.GetComponent<Bullet>().allocateMemory();
-    
+            bullet = Instantiate(bulletPrefab[type]).GetComponent<Bullet>();
+            bullet.allocateMemory();
+
             bullets.Add(bullet);
         }
     
@@ -79,11 +80,11 @@ public class BulletManager : MonoBehaviour
 
     public void clearBullets()
     {
-        bullets.Clear();
-        foreach (Bullet bullet in FindObjectsOfType<Bullet>())
+        foreach (Bullet bullet in bullets)
         {
             Destroy(bullet.gameObject);
         }
+        bullets.Clear();
     }
 
     public Transform getPlayerPos()

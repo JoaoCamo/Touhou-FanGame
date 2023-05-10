@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class EnemiesDanmaku : MonoBehaviour
@@ -174,6 +175,42 @@ public class EnemiesDanmaku : MonoBehaviour
         yield return bowp2(type,8f);
         yield return bowp1(type,10f, angle);
         StartCoroutine(borderOfWaveAndParticleRoutine(type));
+    }
+
+    private IEnumerator cirnoTest(int type)
+    {
+        shotOrigin = transform.position;
+        List<Bullet> bullets = new List<Bullet>();
+        for (i = 0; i < 100; i++)
+        {
+            yield return new WaitForSeconds(0.04f);
+            angle = Random.Range(90f, 270f);
+            bullets.Add(bm.show(type, 0f, 1.5f, shotOrigin, angle));
+            angle = Random.Range(90f, 270f);
+            bullets.Add(bm.show(type, 0f, 1.5f, shotOrigin, angle));
+            angle = Random.Range(90f, 270f);
+            bullets.Add(bm.show(type, 0f, 1.5f, shotOrigin, angle));
+        }
+        yield return new WaitForSeconds(0.5f);
+        foreach (Bullet bullet in bullets)
+        {
+            bullet.ySpeed = 0f;
+        }
+        yield return new WaitForSeconds(2f);
+        foreach (Bullet bullet in bullets)
+        {
+            angle = Random.Range(0f, 360f);
+            bullet.transform.rotation = Quaternion.Euler(0,0,angle);
+            bullet.ySpeed = 0.6f;
+        }
+        yield return new WaitForSeconds(4f);
+        bullets.Clear();
+        StartCoroutine(cirnoTest(type));
+    }
+
+    public void cirno(int type)
+    {
+        StartCoroutine(cirnoTest(type));
     }
 
     public void borderOfWaveAndParticle(int type)

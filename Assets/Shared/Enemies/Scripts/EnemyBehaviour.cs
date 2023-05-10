@@ -16,9 +16,9 @@ public class EnemyBehaviour : MonoBehaviour
         danmaku = GetComponent<EnemiesDanmaku>();
         if(repeats)
         {
-            InvokeRepeating("setShot", initalShotDelay, shotDelay);
+            InvokeRepeating(nameof(setShot), initalShotDelay, shotDelay);
         } else {
-            Invoke("setShot", initalShotDelay);
+            Invoke(nameof(setShot), initalShotDelay);
         }
     }
 

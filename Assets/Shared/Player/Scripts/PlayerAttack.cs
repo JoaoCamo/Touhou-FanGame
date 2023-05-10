@@ -34,15 +34,15 @@ public class PlayerAttack : MonoBehaviour
     {
         if(!bombed)
         {
-            InvokeRepeating("mainShot",0f,0.075f);
-            InvokeRepeating("shotMissile",0f,0.1f);
+            InvokeRepeating(nameof(mainShot),0f,0.075f);
+            InvokeRepeating(nameof(shotMissile),0f,0.1f);
         }
     }
 
     private void endShoot(InputAction.CallbackContext context)
     {
-        CancelInvoke("mainShot");
-        CancelInvoke("shotMissile");
+        CancelInvoke(nameof(mainShot));
+        CancelInvoke(nameof(shotMissile));
     }
 
     private void mainShot()
@@ -78,7 +78,7 @@ public class PlayerAttack : MonoBehaviour
     private void missileShot2()
     {
         shotOrigin = transform.position;
-        if(gameObject.GetComponent<PlayerMovement>().getFocus())
+        if(pm.getFocus())
         {
             bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.2f,shotOrigin.y, 0),90f);
             bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.2f,shotOrigin.y, 0),90f);
@@ -91,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
     private void missileShot3()
     {
         shotOrigin = transform.position;
-        if(gameObject.GetComponent<PlayerMovement>().getFocus())
+        if(pm.getFocus())
         {
             bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.2f,shotOrigin.y + 0.3f,0),90f);
             bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.2f,shotOrigin.y + 0.3f,0),90f);
@@ -106,7 +106,7 @@ public class PlayerAttack : MonoBehaviour
     private void missileShot4()
     {
         shotOrigin = transform.position;
-        if(gameObject.GetComponent<PlayerMovement>().getFocus())
+        if(pm.getFocus())
         {
             bm.show(1,6.5f,0f,new Vector3(shotOrigin.x + 0.2f,shotOrigin.y, 0),90f);
             bm.show(1,6.5f,0f,new Vector3(shotOrigin.x - 0.2f,shotOrigin.y, 0),90f);
